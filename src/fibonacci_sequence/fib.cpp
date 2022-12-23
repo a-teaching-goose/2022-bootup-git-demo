@@ -5,18 +5,14 @@ int fib(int n) {
     if (n == 1) {
         return 1;
     }
-
-    int *data = new int[n + 1]; // why +1?
-    data[0] = 0;
-    data[1] = 1;
+    int v1 = 0;
+    int v2 = 1;
 
     for (int i = 2; i <= n; ++i) {
-        data[i] = data[i - 1] + data[i - 2];
+        int v3 = v1 + v2;
+        v1 = v2;
+        v2 = v3;
     }
 
-    int ret = data[n];
-
-    delete[]data;
-
-    return ret;
+    return v2;
 }
